@@ -1,0 +1,342 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    height: 100vh;
+    background: #e6e9f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.login-container {
+    width: 950px;
+    height: 650px;
+    display: flex;
+    margin-top: 5em;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.6s ease;
+}
+h1 {
+    color: white !important;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Panel izquierdo*/
+.login-left {
+    width: 50%;
+    background: white;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo {
+    width: 140px;
+    height: auto;
+    margin-bottom: 25px;
+    object-fit: contain;
+}
+
+.login-left h2 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #002549;
+    font-weight: 900;
+}
+
+.input-wrapper {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.input-box {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #d0d4da;
+    font-size: 15px;
+    background: #f7f9fc;
+}
+
+.input-box:focus {
+    outline: none;
+    border-color: #40a8e0;
+    box-shadow: 0 0 0 2px rgba(64, 168, 224, 0.25);
+}
+
+.forgot {
+    width: 100%;
+    text-align: right;
+    font-size: 14px;
+    color: #6c7a8b;
+    margin-top: -5px;
+    margin-bottom: 20px;
+}
+
+.forgot span {
+    cursor: pointer;
+    color: #003A79;
+    font-weight: 600;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: #003A79;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #002549;
+}
+
+.signup-text {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.signup-text span {
+    color: #003A79;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* panel derecho */
+.login-right {
+    width: 50%;
+    padding: 50px;
+    color: white;
+    background: linear-gradient(180deg, #003A79 0%, #001D4A 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.login-right::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../img/amigos.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.18;
+    pointer-events: none;
+}
+
+.login-right h1 {
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.login-right p {
+    position: relative;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .login-container {
+        width: 95%;
+        height: auto;
+        flex-direction: column;
+    }
+    .login-right, .login-left {
+        width: 100%;
+        height: auto;
+    }
+    .login-left {
+        padding: 40px 30px;
+    }
+    .login-right {
+        padding: 40px;
+    }
+}
+
+.side-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 14px 14px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 44, 95, 0.60);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 14px 14px 0;
+}
+
+.right-text {
+    position: relative;
+    z-index: 5;
+    color: white;
+    text-align: center;
+    margin-top: 45%;
+}
+
+.center-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.text-muted {
+    color: #6c7480;
+    font-size: 15px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+
+.register-card {
+    width: 430px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.register-logo {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.register-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* Popup general */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.popup-content {
+    background: #ffffff;
+    padding: 28px 32px;
+    width: 90%;
+    max-width: 380px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #003A79;
+    font-weight: 700;
+}
+
+.popup-content p {
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.popup-btn {
+    background: #003A79;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.popup-btn:hover {
+    background: #002859;
+}
+
+/* Evitar que el error mueva los campos hacia abajo */
+.error {
+    color: #d9534f;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 16px;       /*  Espacio reservado */
+    display: block;
+    text-align: left;
+    padding-left: 4px;
+
+
+}
+
+.login-left {
+    min-height: 560px;   /* igual que la altura del contenedor */
+}
+
+.input-wrapper {
+    min-height: 75px;    
+}
+
+.input-wrapper {
+    width: 100%;
+    margin-bottom: 18px;
+    min-height: 58px; /* ajusta para evitar que empuje el botón */
+}
+
+.fondo-blur {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); /* para Safari */
+    background: rgba(0, 0, 0, 0.25); /* oscurece solo un poquito */
+    z-index: 80;
+    display: none;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,329 @@
+
+
+/* Colores */
+:root {
+    --color-primary: #003A79;
+    --color-secondary: #9FD140;
+    --color-text: #333;
+    --color-border: #E5E7EB;
+    --color-soft-bg: #F3F4F6;
+    --color-bg: #FFFFFF;
+}
+
+/* Base */
+body {
+    margin: 0;
+    padding: 0;
+    background: #e6e9f0;
+    font-family: "Inter", sans-serif;
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Contenedores */
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 32px;
+}
+
+.max-820 { max-width: 820px; margin: 0 auto; padding: 40px 32px; }
+.max-700 { max-width: 700px; margin: 0 auto; padding: 40px 32px; }
+.max-900 { max-width: 900px; margin: 0 auto; padding: 40px 32px; }
+
+/* Tipografía */
+
+.title,
+h1,
+h2 {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--color-primary);
+    margin: 20px 0 20px 0;
+}
+
+.center { text-align: center; }
+
+.subt {
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 35px;
+}
+
+/* Texto general */
+p {
+    line-height: 1.6;
+}
+
+/* Grid System */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* CARDS */
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+/* Cards clickeables */
+.card-click {
+    cursor: pointer;
+    transition: 0.2s ease;
+    text-align: center;
+}
+.card-click:hover { transform: translateY(-4px); }
+
+/* Íconos dentro de tarjetas */
+.icon-card {
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 16px;
+}
+
+.bg-primary  { background: var(--color-primary); }
+.bg-secondary { background: var(--color-secondary); }
+
+.icon-card span {
+    color: white;
+    font-size: 42px;
+}
+
+/* Íconos de consentimiento*/
+
+.icon-consent {
+    font-size: 42px;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+/* Caja de checkbox */
+.check-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+.link {
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Botones */
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 25px;
+    display: inline-block;
+}
+.btn-primary:hover { background: #002C5A; }
+
+.btn-secondary {
+    background: #E5E7EB;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+}
+.btn-secondary:hover { background: #C7CBD1; }
+
+
+/* Botón institucional unificado*/
+
+.btn-upana {
+    background: var(--color-primary);
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    transition: 0.25s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+}
+
+.btn-upana:hover {
+    background: #002C5A;
+}
+
+/* Centrado */
+.btn-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+/* Espacios comunes */
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+
+/* Sección de cámara */
+
+.video-preview {
+    width: 100%;
+    max-height: 380px;
+    background: black;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.preview-img {
+    width: 100%;
+    border-radius: 16px;
+    border: 2px solid var(--color-border);
+    margin-top: 20px;
+}
+
+/* Para tarjetas centradas que usas en cámara */
+.padded {
+    padding: 28px;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Botón institucional claro para Recomendaciones */
+.btn-upana-light {
+    background: #bdd8ff;      /* azul claro institucional */
+    color: #003A79;           /* azul principal */
+    padding: 14px 32px;
+    font-size: 17px;
+    border: #bdd8ff;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-upana-light:hover {
+    background: #d4deed;      /* tono más oscuro en hover */
+}
+
+.card-verde {
+    background-color: #e3f7d9;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 16px;
+}
+
+.card-verde-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.info-profesional {
+    background-color: #e8f1ff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.info-profesional h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #003A79;
+}
+
+/* Fondo difuminado del popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Caja del popup */
+.popup-content {
+    background: #ffffff;
+    padding: 30px 35px;
+    width: 350px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+    text-align: center;
+    animation: fadeIn 0.25s ease-out;
+}
+
+/* Título */
+.popup-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #003A79; /* Azul UPANA */
+    margin-bottom: 10px;
+}
+
+/* Mensaje */
+.popup-content p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Botón */
+.popup-btn {
+    background: #003A79; /* Azul UPANA */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.popup-btn:hover {
+    background: #002B5C;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
