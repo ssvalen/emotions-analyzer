@@ -63,12 +63,11 @@ export const authService = {
               username: user.getUsername()
             };
 
-            // Añadir atributos si están disponibles
             if (!err && attributes) {
               attributes.forEach(attr => {
                 if (attr.Name === 'email') userInfo.email = attr.Value;
                 if (attr.Name === 'name') userInfo.name = attr.Value;
-                if (attr.Name === 'preferred_username') userInfo.preferred_username = attr.Value;
+                if (attr.Name === "given_name") userInfo.name = attr.Value;
               });
             }
 
@@ -80,7 +79,7 @@ export const authService = {
           reject(err);
         },
         newPasswordRequired: (userAttributes) => {
-          
+
           reject({
             code: "NewPasswordRequired",
             message: "Debes cambiar tu contraseña",

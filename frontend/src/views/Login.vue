@@ -6,24 +6,12 @@
       <h2>Iniciar Sesión</h2>
 
       <div class="input-wrapper">
-        <input 
-          v-model="email" 
-          type="email" 
-          class="input-box" 
-          placeholder="Correo electrónico"
-          @keyup.enter="login"
-        />
+        <input v-model="email" type="email" class="input-box" placeholder="Correo electrónico" @keyup.enter="login" />
         <p class="error">{{ emailError }}</p>
       </div>
 
       <div class="input-wrapper">
-        <input 
-          v-model="password" 
-          type="password" 
-          class="input-box" 
-          placeholder="Contraseña"
-          @keyup.enter="login"
-        />
+        <input v-model="password" type="password" class="input-box" placeholder="Contraseña" @keyup.enter="login" />
         <p class="error">{{ passwordError }}</p>
       </div>
 
@@ -103,7 +91,6 @@ const goRegister = () => {
 onMounted(async () => {
   try {
     await store.loadUser();
-    // Si ya hay usuario autenticado, redirigir
     if (store.user) {
       router.push("/consent");
     }
@@ -145,31 +132,30 @@ const login = async () => {
 
   try {
     const result = await authService.login(email.value, password.value);
-    
-    // Guardar token y usuario en el store
-    store.setToken(result.id_token);
-    store.setUser({ 
-      username: result.username,
-      email: email.value 
+
+
+    store.setUser({
+      name: result.name || result.preferred_username || result.username || null,
+      username: result.username || null,
+      email: result.email || email.value || null
     });
-    
-    // Guardar en localStorage
+
+    store.setToken(result.id_token);
     localStorage.setItem("token", result.id_token);
-    localStorage.setItem("user", JSON.stringify({ 
+    localStorage.setItem("user", JSON.stringify({
       username: result.username,
-      email: email.value 
+      email: email.value
     }));
-    
+
     store.completeStep(1);
     router.push("/consent");
-    
+
   } catch (err) {
     let mensaje = "Error al iniciar sesión";
 
     if (err.code === "UserNotConfirmedException") {
       mensaje = "Debes verificar tu correo electrónico antes de iniciar sesión";
       mostrarPopup("Verificación pendiente", mensaje, () => {
-        // Opcional: redirigir a una página de verificación
       });
       return;
     } else if (err.code === "NotAuthorizedException") {

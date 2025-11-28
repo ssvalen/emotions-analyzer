@@ -59,7 +59,7 @@ export default {
     const store = useUserStore();
     const router = useRouter();
 
-    const userName = computed(() => store.user?.name || "estudiante");
+    const userName = computed(() => store.user?.username || "estudiante");
 
     const fotoSubida = (event) => {
       errorMsg.value = '';

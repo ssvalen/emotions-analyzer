@@ -50,11 +50,12 @@ export default {
       if (msg.type === "EMOTION_ANALYSIS_COMPLETE") {
         const primary = msg.data.primaryEmotion;
         const activities = msg.data.activities?.actividades || [];
-
+        console.log(msg)
         store.setEmotions({
           emotion: primary.type,
           confidence: primary.confidence.toFixed(2)
         });
+        store.setEmotionAnalysis(msg.data)
         store.setActivities(activities);
         store.completeStep(4);
 
@@ -68,7 +69,7 @@ export default {
     };
 
     const restartFlow = () => {
-      store.completeStep(2); // paso de UploadPhoto
+      store.completeStep(2); 
       store.emotions = null;
       store.activities = [];
       error.value = false;

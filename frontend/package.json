@@ -10,18 +10,20 @@
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity": "^3.936.0",
-    "@aws-sdk/client-cognito-identity-provider": "^3.936.0",
-    "@aws-sdk/client-s3": "^3.936.0",
+    "@aws-sdk/client-cognito-identity-provider": "^3.940.0",
+    "@aws-sdk/client-s3": "^3.940.0",
     "@aws-sdk/credential-provider-cognito-identity": "^3.936.0",
     "amazon-cognito-identity-js": "^6.3.16",
     "axios": "^1.13.2",
     "dotenv": "^17.2.3",
     "oidc-client-ts": "^3.4.1",
+    "pinia": "^3.0.4",
     "uuid": "^13.0.0",
-    "vue": "^3.5.24"
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.1",
-    "vite": "^7.2.2"
+    "@vitejs/plugin-vue": "^6.0.2",
+    "vite": "^7.2.4"
   }
 }

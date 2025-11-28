@@ -10,6 +10,6 @@ export default defineConfig({
     },
   },
   define: {
-    global: 'window',  // agrega esta línea
-  },
+    global: 'window', 
+  }
 })

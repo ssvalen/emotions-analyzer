@@ -16,7 +16,6 @@ import Navbar from '@/components/Navbar.vue';
 
 const route = useRoute();
 
-//Mostrar navbar solo en rutas protegidas
 const showNavbar = computed(() => {
   return !route.meta.hideNavbar && route.meta.requiresAuth;
 });
@@ -36,7 +35,7 @@ html, body {
   height: 100%;
   overflow-x: hidden;
 }
-
+  
 #app {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -59,5 +58,7 @@ html, body {
 .main-content-full {
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>

@@ -7,36 +7,28 @@ export const useUserStore = defineStore('user', {
     token: "",
     user: null,
     fotoBase64: "",
-    
-    // Datos de emociones (mejorados)
+
     emotions: null,
     emotionSpanish: null,
-    allEmotions: [],             
-    faceAnalysis: null,          
-    activities: [],              
+    allEmotions: [],
+    faceAnalysis: null,
+    activities: [],
     stepCompleted: 0,
   }),
 
   getters: {
-    /**
-     * Obtiene la emoción primaria en español
-     */
+
     primaryEmotionSpanish: (state) => {
-      return state.emotionSpanish || 
-             state.emotions?.emotion || 
-             'desconocida';
+      return state.emotionSpanish ||
+        state.emotions?.emotion ||
+        'desconocida';
     },
 
-    /**
-     * Verifica si hay emociones secundarias
-     */
     hasSecondaryEmotions: (state) => {
       return state.allEmotions && state.allEmotions.length > 1;
     },
 
-    /**
-     * Obtiene solo las emociones secundarias (sin la primaria)
-     */
+
     secondaryEmotions: (state) => {
       if (!state.allEmotions || state.allEmotions.length <= 1) {
         return [];
@@ -58,9 +50,6 @@ export const useUserStore = defineStore('user', {
       this.fotoBase64 = foto;
     },
 
-    /**
-     * Método legacy - mantiene compatibilidad
-     */
     setEmotions(emotionObject) {
       this.emotions = emotionObject;
     },
@@ -75,12 +64,11 @@ export const useUserStore = defineStore('user', {
 
     /**
      * Procesa la respuesta completa del análisis de emociones
-     * Compatible con el nuevo formato de la Lambda
      */
     setEmotionAnalysis(data) {
-      console.log('📊 Procesando análisis de emociones:', data);
+      console.log('Procesando análisis de emociones:', data);
 
-      // Emoción principal (mantiene compatibilidad con código existente)
+      // Emoción principal 
       if (data.primaryEmotion) {
         this.emotions = {
           emotion: data.primaryEmotion.type,
@@ -95,19 +83,19 @@ export const useUserStore = defineStore('user', {
 
       // Nombre en español de la emoción principal
       if (data.activities?.emocionPrimaria) {
-        this.emotionSpanish = data.activities.emocionPrimaria.tipoEspanol;
+        this.emotionSpanish = data.activities.emocionPrimaria.typeSpanish ||
+          data.activities.emocionPrimaria.tipoEspanol;
       }
 
       // Todas las emociones detectadas
       if (data.activities?.emocionesDetectadas) {
         this.allEmotions = data.activities.emocionesDetectadas;
       } else if (data.emotions) {
-        // Fallback: usar las emociones del Rekognition
         this.allEmotions = data.emotions
           .filter(e => e.confidence > 5)
           .map(e => ({
             tipo: e.type,
-            tipoEspanol: e.type, // Si no hay español, usar inglés
+            tipoEspanol: e.type,
             confianza: e.confidence
           }));
       }
@@ -121,11 +109,10 @@ export const useUserStore = defineStore('user', {
       if (data.activities?.actividades) {
         this.activities = data.activities.actividades;
       } else if (Array.isArray(data.activities)) {
-        // Compatibilidad con formato antiguo
         this.activities = data.activities;
       }
 
-      console.log('✅ Datos procesados:', {
+      console.log('Datos procesados:', {
         emociónPrimaria: this.emotionSpanish || this.emotions?.emotion,
         emociones: this.allEmotions.length,
         actividades: this.activities.length,
@@ -144,8 +131,6 @@ export const useUserStore = defineStore('user', {
       this.faceAnalysis = null;
       this.activities = [];
       this.fotoBase64 = "";
-      
-      console.log('🧹 Datos de emoción limpiados');
     },
 
     async loadUser() {
@@ -160,7 +145,7 @@ export const useUserStore = defineStore('user', {
         return this.user;
       }
 
-      // Si no hay storage, obtener de cognito
+      // Si no hay storage obtener de cognito
       const session = await authService.getUser();
       if (session) {
         this.user = session.profile;
